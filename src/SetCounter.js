@@ -1,11 +1,15 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { set } from './actions';
 import { useDispatch, useSelector } from 'react-redux';
 
 export const SetCounter = () => {
-  const initialNumber = useSelector((state) => state.count);
-  const [number, setNumber] = useState(initialNumber);
+  const countFromStore = useSelector((state) => state.count);
+  const [number, setNumber] = useState(countFromStore);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    setNumber(set(countFromStore));
+  }, [countFromStore]);
 
   return (
     <section className="controls">
