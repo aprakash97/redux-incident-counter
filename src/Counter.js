@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { SetCounter } from './SetCounter';
 import { increment, INCREMENT, DECREMENT, decrement, set } from './actions';
 
 export const Counter = () => {
@@ -20,6 +21,7 @@ export const Counter = () => {
           Decrement
         </button>
       </section>
+      <SetCounter />
     </main>
   );
 };
